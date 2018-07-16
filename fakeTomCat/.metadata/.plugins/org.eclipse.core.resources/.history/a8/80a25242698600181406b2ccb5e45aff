@@ -1,0 +1,26 @@
+package myTomCat;
+
+import java.util.regex.*;
+import java.util.Date;
+
+public class ReplaceData {
+	public static String replaceHtmlTag(String str) {
+		String time = "";
+        Pattern p_date;
+        Matcher m_date;
+        String regEx_date = "</h1>";
+        p_date = Pattern.compile(regEx_date, Pattern.CASE_INSENSITIVE);
+        m_date = p_date.matcher(str);
+        while (m_date.find()) {
+            // 得到<img />数据
+            time = m_date.group();
+        }
+        return time;
+	}
+	
+	public void getTime() {
+		Date now = new Date();//默认实例化的Date表示当前系统时间
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	    String str = sdf.format(now);
+	}
+}

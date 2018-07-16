@@ -1,0 +1,22 @@
+package lx1;
+
+import java.io.*;
+
+public class Lx1_2 {
+	public static void main(String args[]) {
+		String s = "";
+		try {
+			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+	        s = in.readLine();
+		}catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+		if (s.length() < 3) {
+			System.out.println("");}
+		} else {
+			System.out.println(s.charAt(2));
+		}
+}

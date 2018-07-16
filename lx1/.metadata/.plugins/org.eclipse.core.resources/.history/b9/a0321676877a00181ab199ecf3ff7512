@@ -1,0 +1,25 @@
+package lx1;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class Lx1_7 {
+	public static void main(String args[]) {
+		int m = 0;
+		int n = 0;
+		Scanner scan = new Scanner(System.in);
+		System.out.println("请输入第一个数：");
+		if (scan.hasNext()) {
+            m = Integer.parseInt(scan.next());
+        }
+		if (scan.hasNext()) {
+            n = Integer.parseInt(scan.next());
+        }
+        scan.close();
+        if (m > n) {
+        	System.out.println(n + " " + m);
+        } else {
+        	System.out.println(m + " " + n);
+        }
+	}
+}

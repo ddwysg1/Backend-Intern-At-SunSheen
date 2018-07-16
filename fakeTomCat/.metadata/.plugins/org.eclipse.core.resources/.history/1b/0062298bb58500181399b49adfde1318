@@ -1,0 +1,61 @@
+package myTomCat;
+
+import java.io.*;
+import java.net.*;
+import java.util.concurrent.*;
+
+public class FakeTomCat {
+	private static int port = 8080;
+	
+	public static void main(String args[]) {
+		port = args.length > 0 ? Integer.parseInt(args[0]) : port;
+		new FakeTomCat().start(port);
+	}
+	
+	public void start(int port) {
+		try {
+			ServerSocket ss = new ServerSocket(port);
+			System.out.println("Server start... listen [" + port + "]port");
+			while(true) {
+				Socket socket = ss.accept();
+				System.out.println("New request...");
+				ExecutorService pool = Executor.newFixedThreadPool(100);
+				pool.submit(new HandlerRequestThread(socket));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+public class HandelerRequestThread implements Runnable {
+	private InputStream input = null;
+	private PrintStream out = null;
+	public static final String WEB_ROOT = "D:" + File.separator + "FakeTomCat" + File.separator;
+	
+	public HandlerRequestThread(Socket socket) {
+		try {
+			input = socket.getInputStream();
+			out = new PrintStream(socket.getOutputStream());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void run() {
+		System.out.println("Processing user's request...");
+		try {
+			String fileName = parseRequestHead(this.input);
+			getFile(fileName);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public String parseRequestHead(InputStream in) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(in));
+		String headContent = br.readLine();
+		System.out.println(headContent);
+		
+	}
+}

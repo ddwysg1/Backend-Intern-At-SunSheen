@@ -1,0 +1,42 @@
+package lx1;
+
+import java.io.*;
+import  java.util.Scanner;
+
+public class Lx1_1 {
+	public static void main(String args[]) {
+		String s = "";
+		try {
+			Scanner scanner = new Scanner(System.in);    
+			System.out.println("请输入字符串");                    
+	        s = scanner.next();
+		}catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }  
+	    String s1 = cToUniCode(s);
+	    System.out.println("unicode is " + s1);
+	    String s2 = uniCodeToC(s1);
+	    System.out.println("原文是：  " + s2);
+	}
+	
+	public static String cToUniCode(String c) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < c.length(); i++) {
+			sb.append("\\u" + Integer.toHexString(c.charAt(i)));
+		}
+		return sb.toString();
+	}
+	
+	public static String uniCodeToC(String uni) {
+		StringBuilder sb = new StringBuilder();
+		String[] hex = uni.split("\\\\u");
+		for (int i = 1; i < hex.length; i++) {
+			int num = Integer.parseInt(hex[i], 16);
+			sb.append((char)num);
+		}
+		return sb.toString();
+	}
+}

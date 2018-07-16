@@ -1,0 +1,5 @@
+package lx1;
+
+public interface run {
+
+}

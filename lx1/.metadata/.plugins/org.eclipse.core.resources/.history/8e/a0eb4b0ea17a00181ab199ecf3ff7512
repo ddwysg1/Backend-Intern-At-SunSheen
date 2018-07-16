@@ -1,0 +1,7 @@
+package lx1;
+
+public class Runner implements Sport{
+	public void run() {
+		System.out.println("Runner is running");
+	}
+}

@@ -1,0 +1,14 @@
+package JDBCtest;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Test {
+	private static Connection getConn() {
+		
+	}
+}

@@ -1,0 +1,9 @@
+package lx1;
+
+public class Human implements Run, Swim{
+	public String name;
+	
+	public void swim() {
+		System.out.println("Human can swim");
+	}
+}

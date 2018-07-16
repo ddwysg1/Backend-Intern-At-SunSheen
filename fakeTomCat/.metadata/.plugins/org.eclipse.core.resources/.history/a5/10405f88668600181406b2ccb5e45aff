@@ -1,0 +1,23 @@
+package myTomCat;
+
+public class ReplaceData {
+	public static String replaceHtmlTag() {
+		String regxpForTag = "<\\s*\\s+([^>]*)\\/>";  //需要替换的标签正则匹配
+		Pattern patternForTag = Pattern.compile(regxpForTag);  //编译表达式
+		Matcher matcherForTag = patternForTag.matcher(str);
+		StringBuffer sb = new StringBuffer();
+		boolean result = matcherForTag.find();
+		while (result) {
+			String img = "";
+			Matcher matcherForAttrib1 = Pattern.compile("src\\s*=\\s*\"?(.*?)(\"|>|\\s+)").matcher(matcherForTag.group(1)); //获取指定标签中的指定属性
+			if (matcherForAttrib1.find()) {
+				img = startTag + matcherForAttrib1.group(1) + endTag;  //拼接需要替换的标签
+			}
+ 
+			matcherForTag.appendReplacement(sb, img);
+			result = matcherForTag.find();
+		}
+		matcherForTag.appendTail(sb);  //最后将所有标签拼接到一起返回
+		return sb.toString();
+	}
+}

@@ -1,0 +1,13 @@
+package lx1;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class Lx1_7 {
+	public int m, n;
+	public static void main(String args[]) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("请输入第一个数：");
+		
+	}
+}

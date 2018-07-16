@@ -1,0 +1,10 @@
+package lx1;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class Lx1_7 {
+	public static void main(String args[]) {
+		
+	}
+}

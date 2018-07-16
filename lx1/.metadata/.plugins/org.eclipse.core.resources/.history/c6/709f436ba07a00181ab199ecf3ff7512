@@ -1,0 +1,13 @@
+package lx1;
+
+public interface run {
+	void run();
+}
+
+public class Lx1_5 {
+		public static void main(String args[]) {
+			
+		}
+}
+
+

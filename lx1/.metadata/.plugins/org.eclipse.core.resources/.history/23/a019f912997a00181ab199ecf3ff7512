@@ -1,0 +1,19 @@
+package lx1;
+
+public class Lx1_4 {
+	public static void main(String args[]) {
+		
+	}
+	
+	public static String toString(char[] chs) {
+		if (chs = null || chs.length == 0) {
+			return "";
+		}
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < chs.length; i++) {
+			sb.append(chs[i]);
+		}
+		
+		return sb.toString();
+	}
+}

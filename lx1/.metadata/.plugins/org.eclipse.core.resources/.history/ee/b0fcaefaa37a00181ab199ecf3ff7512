@@ -1,0 +1,15 @@
+package lx1;
+
+public class Lx1_5 {
+		public static void main(String args[]) {
+			Human h = new Human();
+			if (h instanceof Human) {
+				h.swim();
+			}
+			if (h instanceof Runner) {
+				h.run();
+			}
+		}
+}
+
+

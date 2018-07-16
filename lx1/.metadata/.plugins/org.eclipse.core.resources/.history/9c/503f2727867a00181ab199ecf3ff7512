@@ -1,0 +1,10 @@
+package lx1;
+
+import java.util.ArrayList;
+
+public class Lx1_8 {
+	public static void main(String args[]) {
+		List<Integer> list = new ArrayList<>();
+		
+	}
+}
